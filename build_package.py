@@ -2,7 +2,7 @@
 打包脚本 - 将翻译器打包分享给家人
 运行方式: python build_package.py
 
-打包后会在 dist/ 目录生成 "小D单词翻译器" 文件夹，
+打包后会在 dist/ 目录生成 "translateLLM" 文件夹，
 里面包含 exe 和模型文件，复制整个文件夹即可分享。
 """
 import os
@@ -25,7 +25,7 @@ cmd = [
     "--noconfirm",
     "--onedir",
     "--windowed",
-    "--name", "小D单词翻译器",
+    "--name", "translateLLM",
     # 收集 llama_cpp 所有文件（包括 lib 目录下的 DLL）
     "--collect-all", "llama_cpp",
     # 添加模型文件
@@ -52,7 +52,7 @@ print("开始打包...")
 result = subprocess.run(cmd, shell=True)
 
 if result.returncode == 0:
-    dist_dir = os.path.join("dist", "小D单词翻译器")
+    dist_dir = os.path.join("dist", "translateLLM")
     model_file = "hy-mt1.5-1.8b-q4_k_m.gguf"
     
     # 复制模型文件到输出目录
@@ -89,7 +89,7 @@ if result.returncode == 0:
     print(f"📏 总大小: {total_size / 1024 / 1024:.1f} MB")
     print(f"\n📋 分享方法：")
     print(f"   1. 将整个文件夹复制到U盘或压缩成zip")
-    print(f"   2. 家人收到后，双击运行 '小D单词翻译器.exe' 即可")
+    print(f"   2. 家人收到后，双击运行 'translateLLM.exe' 即可")
     print(f"   3. 无需安装 Python 或任何依赖")
     print(f"{'='*50}")
 else:
